@@ -1,0 +1,15 @@
+{
+  "name": "review-6",
+  "version": "1.0.0",
+  "description": "## Task - help teachers find out how students did on tests - string of comma separated values with test results from schools - task: build simple report",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
