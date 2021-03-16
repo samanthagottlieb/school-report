@@ -5,12 +5,16 @@ class SchoolReport {
 
   createReport() {
     let resultsNum = parseInt(this.results);
-    if (resultsNum <= 0 && resultsNum < 50) {
-      return "Red: 1";
-    } else if (resultsNum >= 50 && resultsNum < 75) {
-      return "Amber: 1";
-    } else if (resultsNum >= 75 && resultsNum <= 100) {
-      return "Green: 1";
+    return `${this.determineColour(resultsNum)}: 1`;
+  }
+
+  determineColour(result) {
+    if (result <= 0 && result < 50) {
+      return "Red";
+    } else if (result >= 50 && result < 75) {
+      return "Amber";
+    } else if (result >= 75 && result <= 100) {
+      return "Green";
     }
   }
 }
