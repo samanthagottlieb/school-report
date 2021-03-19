@@ -4,10 +4,16 @@ class SchoolReport {
   }
 
   createReport() {
-    const resultsNum = parseInt(this.results);
-    const colourFrequency = 1;
+    const resultsSplit = this.results.split(",");
+    const resultsArray = resultsSplit.map((result) => {
+      return parseInt(result);
+    });
+    const colourFrequency = resultsArray.length;
+    const resultsColours = resultsArray.map((result) => {
+      return this.determineColour(result);
+    });
 
-    return `${this.determineColour(resultsNum)}: ${colourFrequency}`;
+    return `${resultsColours[0]}: ${colourFrequency}`;
   }
 
   determineColour(result) {
