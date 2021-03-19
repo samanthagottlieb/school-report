@@ -12,17 +12,15 @@ class SchoolReport {
 
   determineColour(result) {
     const redLowestScore = 0;
-    const redHighestScore = 49;
-    const amberLowestScore = 50;
-    const amberHighestScore = 74;
-    const greenLowestScore = 75;
+    const redAmberThreshold = 50;
+    const amberGreenThreshold = 75;
     const greenHighestScore = 100;
 
-    if (result <= redLowestScore && redHighestScore <= 50) {
+    if (result >= redLowestScore && result < redAmberThreshold) {
       return "Red";
-    } else if (result >= amberLowestScore && result <= amberHighestScore) {
+    } else if (result >= redAmberThreshold && result < amberGreenThreshold) {
       return "Amber";
-    } else if (result >= greenLowestScore && result <= greenHighestScore) {
+    } else if (result >= amberGreenThreshold && result <= greenHighestScore) {
       return "Green";
     }
   }
