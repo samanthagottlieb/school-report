@@ -1,11 +1,11 @@
 class SchoolReport {
   constructor(results) {
     this.results = results;
-    this.greenResults = [];
-    this.amberResults = [];
-    this.redResults = [];
-    this.reportArray = [];
+    this.greenResults = 0;
+    this.amberResults = 0;
+    this.redResults = 0;
     this.invalidResults = 0;
+    this.reportArray = [];
   }
 
   createReport() {
@@ -23,26 +23,20 @@ class SchoolReport {
   }
 
   greenReport() {
-    const greenFrequency = this.greenResults.length;
-
-    if (this.greenResults.length > 0) {
-      this.reportArray.push(`Green: ${greenFrequency}`);
+    if (this.greenResults > 0) {
+      this.reportArray.push(`Green: ${this.greenResults}`);
     }
   }
 
   amberReport() {
-    const amberFrequency = this.amberResults.length;
-
-    if (this.amberResults.length > 0) {
-      this.reportArray.push(`Amber: ${amberFrequency}`);
+    if (this.amberResults > 0) {
+      this.reportArray.push(`Amber: ${this.amberResults}`);
     }
   }
 
   redReport() {
-    const redFrequency = this.redResults.length;
-
-    if (this.redResults.length > 0) {
-      this.reportArray.push(`Red: ${redFrequency}`);
+    if (this.redResults > 0) {
+      this.reportArray.push(`Red: ${this.redResults}`);
     }
   }
 
@@ -66,11 +60,11 @@ class SchoolReport {
     const greenHighestScore = 100;
 
     if (result >= redLowestScore && result < redAmberThreshold) {
-      this.redResults.push("Red");
+      this.redResults++;
     } else if (result >= redAmberThreshold && result < amberGreenThreshold) {
-      this.amberResults.push("Amber");
+      this.amberResults++;
     } else if (result >= amberGreenThreshold && result <= greenHighestScore) {
-      this.greenResults.push("Green");
+      this.greenResults++;
     } else if (result < 0 || result > 100) {
       this.invalidResults++;
     }
