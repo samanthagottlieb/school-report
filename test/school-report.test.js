@@ -28,9 +28,15 @@ describe("SchoolReport", () => {
       expect(greenReport.createReport()).toEqual("Green: 2");
     });
 
-    it("counts two test scores of different colours", () => {
+    it("counts test scores of different colours", () => {
       let report = new SchoolReport("0,50");
       expect(report.createReport()).toEqual("Amber: 1\nRed: 1");
+
+      let report2 = new SchoolReport("0,10,50");
+      expect(report2.createReport()).toEqual("Amber: 1\nRed: 2");
+
+      let report3 = new SchoolReport("1,10,45,60,80,100");
+      expect(report3.createReport()).toEqual("Green: 2\nAmber: 1\nRed: 3");
     });
   });
 });
