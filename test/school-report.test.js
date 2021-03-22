@@ -38,5 +38,10 @@ describe("SchoolReport", () => {
       let report3 = new SchoolReport("1,10,45,60,80,100");
       expect(report3.createReport()).toEqual("Green: 2\nAmber: 1\nRed: 3");
     });
+
+    it("counts out of range scores as invalid", () => {
+      let report = new SchoolReport("-1");
+      expect(report.createReport()).toEqual("Invalid: 1");
+    });
   });
 });

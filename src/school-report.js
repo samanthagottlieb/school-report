@@ -5,6 +5,7 @@ class SchoolReport {
     this.amberResults = [];
     this.redResults = [];
     this.reportArray = [];
+    this.invalidResults = 0;
   }
 
   createReport() {
@@ -16,6 +17,7 @@ class SchoolReport {
     this.greenReport();
     this.amberReport();
     this.redReport();
+    this.invalidReport();
 
     return this.reportArray.join("\n");
   }
@@ -44,6 +46,12 @@ class SchoolReport {
     }
   }
 
+  invalidReport() {
+    if (this.invalidResults > 0) {
+      this.reportArray.push(`Invalid: ${this.invalidResults}`);
+    }
+  }
+
   parseResults(results) {
     const resultsSplit = results.split(",");
     this.results = resultsSplit.map((result) => {
@@ -63,6 +71,8 @@ class SchoolReport {
       this.amberResults.push("Amber");
     } else if (result >= amberGreenThreshold && result <= greenHighestScore) {
       this.greenResults.push("Green");
+    } else if (result < 0 || result > 100) {
+      this.invalidResults++;
     }
   }
 }
