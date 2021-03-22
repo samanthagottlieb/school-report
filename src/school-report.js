@@ -24,44 +24,44 @@ class SchoolReport {
     return this.reportArray.join("\n");
   }
 
-  checkInputType() {
+  _checkInputType() {
     if (this.results.includes(NaN)) {
       throw "Incorrect input type";
     }
   }
 
-  greenReport() {
+  _greenReport() {
     if (this.greenResults > 0) {
       this.reportArray.push(`Green: ${this.greenResults}`);
     }
   }
 
-  amberReport() {
+  _amberReport() {
     if (this.amberResults > 0) {
       this.reportArray.push(`Amber: ${this.amberResults}`);
     }
   }
 
-  redReport() {
+  _redReport() {
     if (this.redResults > 0) {
       this.reportArray.push(`Red: ${this.redResults}`);
     }
   }
 
-  invalidReport() {
+  _invalidReport() {
     if (this.invalidResults > 0) {
       this.reportArray.push(`Invalid: ${this.invalidResults}`);
     }
   }
 
-  parseResults(results) {
+  _parseResults(results) {
     const resultsSplit = results.split(",");
     this.results = resultsSplit.map((result) => {
       return parseInt(result);
     });
   }
 
-  determineColour(result) {
+  _determineColour(result) {
     const redLowestScore = 0;
     const redAmberThreshold = 50;
     const amberGreenThreshold = 75;
