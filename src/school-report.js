@@ -10,6 +10,11 @@ class SchoolReport {
 
   createReport() {
     this.parseResults(this.results);
+
+    if (this.results.includes(NaN)) {
+      throw "Incorrect input type";
+    }
+
     this.results.forEach((result) => {
       return this.determineColour(result);
     });

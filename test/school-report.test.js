@@ -43,5 +43,12 @@ describe("SchoolReport", () => {
       let report = new SchoolReport("-1");
       expect(report.createReport()).toEqual("Invalid: 1");
     });
+
+    it("raises an error with incorrect input type", () => {
+      let report = new SchoolReport("a");
+      expect(() => {
+        report.createReport();
+      }).toThrow("Incorrect input type");
+    });
   });
 });
