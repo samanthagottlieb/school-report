@@ -4,16 +4,21 @@ class SchoolReport {
   }
 
   createReport() {
-    const resultsSplit = this.results.split(",");
-    const resultsArray = resultsSplit.map((result) => {
-      return parseInt(result);
-    });
-    const colourFrequency = resultsArray.length;
-    const resultsColours = resultsArray.map((result) => {
+    this.parseResults(this.results);
+
+    const colourFrequency = this.results.length;
+    const resultsColours = this.results.map((result) => {
       return this.determineColour(result);
     });
 
     return `${resultsColours[0]}: ${colourFrequency}`;
+  }
+
+  parseResults(results) {
+    const resultsSplit = results.split(",");
+    this.results = resultsSplit.map((result) => {
+      return parseInt(result);
+    });
   }
 
   determineColour(result) {
