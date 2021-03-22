@@ -49,6 +49,11 @@ describe("SchoolReport", () => {
       expect(() => {
         report.createReport();
       }).toThrow("Incorrect input type");
+
+      let report2 = new SchoolReport("b,£,+");
+      expect(() => {
+        report2.createReport();
+      }).toThrow("Incorrect input type");
     });
   });
 });
