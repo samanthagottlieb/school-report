@@ -1,24 +1,74 @@
 # School Report
 
-Simple app to create a report based on student test results.
+Simple app to create a report based on student test results. Can be interacted with via a REPL.
 
 Makers Academy process review task.
 
-## Task
+## How To Use
 
-- Build app to create a simple report on test results, helping teachers see how students did on tests
+### Set up the project
+
+Clone the repository:
+
+```sh
+git clone git@github.com:samanthagottlieb/school-report.git
+```
+
+Navigate to the directory:
+
+```sh
+cd school-report
+```
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+### Run tests
+
+Run:
+
+```sh
+npm test
+```
+
+### Run the app
+
+Start the Node.js REPL:
+
+```sh
+node
+```
+
+Require the file into the REPL:
+
+```sh
+const SchoolReport = require('./src/school-report.js')
+```
+
+### Example Usage
+
+![Example usage](images/example-usage.png)
+
+## Specification
+
+### Task
+
+- Build an app to create a simple report on test results, helping teachers see how students did on tests
 - Input: string of comma separated values with test results
 - Output: string listing numbers of results falling withing each colour score category
 
-## Scores
+### Scores
 
 - Green: 75 - 100
 - Amber: 50 - 74
 - Red: 0 - 49
 - Invalid: < 0 or > 100
-- Raise error if incorrect input type (e.g. input is a letter)
+- Raise error if incorrect input type
 
-## Usage
+### Input | Output
 
 | INPUT               | OUTPUT                              |
 | ------------------- | ----------------------------------- |
