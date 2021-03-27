@@ -9,17 +9,17 @@ class SchoolReport {
   }
 
   createReport() {
-    this.parseResults(this.results);
-    this.checkInputType();
+    this._parseResults(this.results);
+    this._checkInputType();
 
     this.results.forEach((result) => {
-      return this.determineColour(result);
+      return this._determineColour(result);
     });
 
-    this.greenReport();
-    this.amberReport();
-    this.redReport();
-    this.invalidReport();
+    this._greenReport();
+    this._amberReport();
+    this._redReport();
+    this._invalidReport();
 
     return this.reportArray.join("\n");
   }
